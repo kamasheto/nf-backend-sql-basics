@@ -43,7 +43,7 @@ WHERE (version >= 0.1 AND version <= 0.3) OR (version >= 0.5 AND version <= 0.7)
 
 SELECT *
 FROM blog_entries
-WHERE content LIKE 'other';
+WHERE content LIKE 'other'; -- case insensitive search
 -- IS IDENTICAL TO: 👇
 -- SELECT *
 -- FROM blog_entries
@@ -52,3 +52,7 @@ WHERE content LIKE 'other';
 SELECT *
 FROM blog_entries
 WHERE content LIKE '%other%';
+
+SELECT *
+FROM blog_entries
+WHERE version LIKE '0._'; -- 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9
