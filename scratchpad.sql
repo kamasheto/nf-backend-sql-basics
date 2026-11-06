@@ -1,0 +1,9 @@
+CREATE TABLE blog_entries (
+    id INTEGER PRIMARY KEY,
+
+    title TEXT NOT NULL,
+    version REAL, -- 0.1
+
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
