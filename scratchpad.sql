@@ -47,8 +47,7 @@ WHERE content LIKE 'other';
 -- IS IDENTICAL TO: 👇
 -- SELECT *
 -- FROM blog_entries
--- WHERE content = 'other';
---
+-- WHERE LOWER(content) = LOWER('other');
 
 SELECT *
 FROM blog_entries
