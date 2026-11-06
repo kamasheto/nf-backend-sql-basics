@@ -27,3 +27,11 @@ export async function connectDB() {
 
   return db;
 }
+
+export async function closeDB() {
+  if (db) {
+    console.log("Closing database connection...");
+    await db.close();
+    db = null;
+  }
+}

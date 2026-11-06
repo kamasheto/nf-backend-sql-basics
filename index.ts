@@ -1,4 +1,4 @@
-import { connectDB } from "./db/database";
+import { closeDB, connectDB } from "./db/database";
 import express from "express";
 import { getAllBlogEntries, getBlogEntryById } from "./src/models";
 
@@ -24,4 +24,17 @@ app.use("/", router);
 
 app.listen(3009, () => {
   console.log("Server is running on port 3009");
+});
+
+// src/index.ts
+process.on("SIGINT", async () => {
+  console.log("SIGINT received. Closing database connection...");
+  await closeDB();
+  process.exit(0);
+});
+
+process.on("SIGTERM", async () => {
+  console.log("SIGTERM received. Closing database connection...");
+  await closeDB();
+  process.exit(0);
 });
